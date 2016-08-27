@@ -13,15 +13,15 @@ class Baidu(unittest.TestCase):
 
     def setUp(self):
     
-        appData=os.getenv('APPDATA')
-        profile=appData+"\\Mozilla\\Firefox\\Profiles\\"
-        current=os.listdir(profile)
-        fireFoxProfile=profile+current[0]
-        fp=webdriver.FirefoxProfile(fireFoxProfile)
-        
-        self.driver = webdriver.Firefox(fp)
-        self.driver.implicitly_wait(30)
-        self.base_url = "https://www.baidu.com"
+#         appData=os.getenv('APPDATA')
+#         profile=appData+"\\Mozilla\\Firefox\\Profiles\\"
+#         current=os.listdir(profile)
+#         fireFoxProfile=profile+current[0]
+#         print fireFoxProfile
+        fp=webdriver.FirefoxProfile(r'C:\Users\Administrator\AppData\Roaming\Mozilla\Firefox\Profiles\mbc4unxt.default')  
+        browser=webdriver.Firefox(fp)  
+        browser.maximize_window()  
+        browser.get("http://www.baidu.com") 
 
     def test_baidu_search(self):
         driver = self.driver
