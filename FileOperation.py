@@ -1,12 +1,8 @@
 import os
 
 
-myappdata=os.getenv('APPDATA')
-
-firefoxprofil=myappdata+"\\Mozilla\\Firefox\\Profiles\\"
-
-l=os.listdir(firefoxprofil)
-lastfil=l[0]
-
-st=firefoxprofil+lastfil
-print st
+appData=os.getenv('APPDATA')
+profile=appData+"\\Mozilla\\Firefox\\Profiles\\"
+current=os.listdir(profile)
+fireFoxProfile=profile+current[0]
+print fireFoxProfile
