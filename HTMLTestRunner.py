@@ -488,7 +488,7 @@ a.popup_link:hover {
     </td>
     <td align='center'>
     <a href="%(image)s" title="%(image)s">  
-    <img src="..\result\image\data.png" height=20 width=20 border=0 /></a> 
+    <img src=".\image\data.png" height=40 width=40 border=0 /></a>
     </td>
 </tr>
 """ # variables: (tid, Class, style, desc, status)

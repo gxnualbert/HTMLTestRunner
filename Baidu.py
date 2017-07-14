@@ -17,35 +17,33 @@ class Baidu(unittest.TestCase):
         chrome_options.add_argument("user-data-dir="+os.path.abspath(profile_dir))  
         self.driver = webdriver.Chrome(chrome_options=chrome_options)  
         self.driver.implicitly_wait(30)
-        self.base_url = "https://www.zhihu.com/"
+        self.base_url = "https://www.baidu.com"
 
     def test_baidu_search(self):
         driver = self.driver
         print u"========【case_0001】 fuck search long time============="
         driver.get(self.base_url + "/")
-        # driver.find_element_by_id("kw").clear()
-        # driver.find_element_by_id("kw").send_keys(u"林志玲")
-        # driver.find_element_by_id("su").click()
         now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
         # 必须要打印路径HTMLTestRunner才能捕获并且生成路径，\image\**.png 是获取路径的条件，必须这样的目录
-        pic_path = 'C:\\Workspace\\HTMLTestRunner\\result\\image\\'+now+'.png'
+        pic_path = '.\\result\\image\\'+now+'.png'
         print pic_path
         driver.save_screenshot(pic_path)
-        time.sleep(58)
-    def ddest_baidu2_search(self):
+        time.sleep(5)
+
+    def test_case2(self):
         driver = self.driver
         print u"========【case_0001】 fuck search long time============="
         driver.get(self.base_url + "/")
-        driver.find_element_by_id("kdsew").clear()
-        driver.find_element_by_id("kwsdr").send_keys(u"林志玲")
-        # driver.find_element_by_id("su").click()
+        driver.find_element_by_id("kw").clear()
+        driver.find_element_by_id("kw").send_keys(u"林志玲")
         now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
         # 必须要打印路径HTMLTestRunner才能捕获并且生成路径，\image\**.png 是获取路径的条件，必须这样的目录
-        pic_path = 'C:\\Workspace\\HTMLTestRunner\\result\\image\\'+now+'.png'
+        pic_path = '.\\result\\image\\'+now+'.png'
         print pic_path
         print "hello"
+        time.sleep(4)
         driver.save_screenshot(pic_path)
-        time.sleep(2)
+
            
 
     def tearDown(self):
@@ -56,9 +54,9 @@ if __name__ == "__main__":
     now = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
     testunit = unittest.TestSuite()
     testunit.addTest(Baidu("test_baidu_search"))
-#     testunit.addTest(Baidu("test_baidu2_search"))
-    HtmlFile = "C:\\Workspace\\HTMLTestRunner\\result\\HTMLtemplate.html"
+    testunit.addTest(Baidu("test_case2"))
+    HtmlFile = ".\\result\\HTMLtemplate.html"
     fp = open(HtmlFile, "wb")
-    runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title=u"Who knows why eclipse pass", description=u"search long time")
+    runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title=u"好视通·Boss项目测试", description=u"Boss 界面测试")
     runner.run(testunit)
     fp.close()
